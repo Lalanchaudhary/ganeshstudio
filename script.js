@@ -103,3 +103,10 @@ if (lightbox) {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeLightbox();
 });
+
+window.addEventListener('load', () => {
+  const popup = document.getElementById('popup');
+  if (popup) {
+    popup.style.display = 'block';
+  }
+});
