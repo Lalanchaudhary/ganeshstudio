@@ -24,11 +24,18 @@
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
 function gtag_report_conversion(url) {
+  var redirectTimer;
   var callback = function () {
     if (typeof(url) != 'undefined') {
+      clearTimeout(redirectTimer);
       window.location = url;
     }
   };
+  if (typeof(url) != 'undefined') {
+    redirectTimer = setTimeout(function () {
+      window.location = url;
+    }, 1000);
+  }
   gtag('event', 'conversion', {
       'send_to': 'AW-18151161906/K8KYCIbR4qocELKAk89D',
       'event_callback': callback
@@ -193,13 +200,20 @@ function gtag_report_conversion(url) {
     <p class="copyright">© 2026 Ganesh Studio. All rights reserved.</p>
   </footer>
 
-  <a class="whatsapp-top" href="https://wa.me/917979077669?text=I%20want%20to%20know%20more" aria-label="Contact Ganesh Studio on WhatsApp" onclick="return gtag_report_conversion(this.href)"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+  <a class="whatsapp-top" href="https://wa.me/917979077669?text=I%20want%20%F0%9F%86%94here" aria-label="Contact Ganesh Studio on WhatsApp" onclick="return gtag_report_conversion(this.href)"><i class="bi bi-whatsapp"></i> WhatsApp</a>
 
   <div id="popup" style="display: none;">
     <button class="popup-close" onclick="document.getElementById('popup').style.display='none'" aria-label="Close popup"><i class="bi bi-x"></i></button>
-    <img src="lordganesh.png" alt="Ganesh Popup" onclick="return gtag_report_conversion('https://wa.me/917979077669?text=I%20want%20to%20know%20more')">
+    <img src="lordganesh.png" alt="Ganesh Popup" onclick="return gtag_report_conversion('https://wa.me/917979077669?text=I%20want%20%F0%9F%86%94here')">
   </div>
 
   <script src="script.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        gtag_report_conversion('https://wa.me/917979077669?text=I%20want%20%F0%9F%86%94here');
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
