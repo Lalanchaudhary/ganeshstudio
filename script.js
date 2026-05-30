@@ -49,7 +49,7 @@ document.querySelectorAll(".contact-form").forEach((form) => {
       return;
     }
 
-    status.textContent = "Thank you. Your inquiry is ready to send to Ganesh Studio.";
+    status.textContent = "Thank you. Your inquiry is ready to send to Jannat Studio.";
     form.reset();
   });
 });
